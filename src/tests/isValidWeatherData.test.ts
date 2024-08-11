@@ -1,5 +1,5 @@
 import { isValidWeatherData } from '../modules/isValidWeatherData';
-import { validWeatherJSON } from '../utils/validWeatherJSON';
+import { validWeatherJSON } from '../data/validWeatherJSON';
 
 describe('isValidWeatherData', () => {
   it('should return true for valid weather data', () => {

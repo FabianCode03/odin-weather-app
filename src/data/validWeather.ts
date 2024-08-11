@@ -19,7 +19,7 @@ export const validWeather = {
 
       hours: [
         {
-          datetime: '00:00:00',
+          datetime: '00:00',
 
           temp: 70.9,
 
@@ -33,7 +33,7 @@ export const validWeather = {
           icon: 'clear-night',
         },
         {
-          datetime: '01:00:00',
+          datetime: '01:00',
 
           temp: 68,
 
@@ -47,7 +47,7 @@ export const validWeather = {
           icon: 'partly-cloudy-night',
         },
         {
-          datetime: '02:00:00',
+          datetime: '02:00',
 
           temp: 64.3,
 
@@ -61,7 +61,7 @@ export const validWeather = {
           icon: 'partly-cloudy-night',
         },
         {
-          datetime: '03:00:00',
+          datetime: '03:00',
 
           temp: 64.3,
 
@@ -75,7 +75,7 @@ export const validWeather = {
           icon: 'partly-cloudy-night',
         },
         {
-          datetime: '04:00:00',
+          datetime: '04:00',
 
           temp: 62.5,
 
@@ -89,7 +89,7 @@ export const validWeather = {
           icon: 'partly-cloudy-night',
         },
         {
-          datetime: '05:00:00',
+          datetime: '05:00',
 
           temp: 62.5,
 
@@ -103,7 +103,7 @@ export const validWeather = {
           icon: 'partly-cloudy-night',
         },
         {
-          datetime: '06:00:00',
+          datetime: '06:00',
 
           temp: 60.7,
 
@@ -117,7 +117,7 @@ export const validWeather = {
           icon: 'partly-cloudy-night',
         },
         {
-          datetime: '07:00:00',
+          datetime: '07:00',
 
           temp: 60.7,
 
@@ -131,7 +131,7 @@ export const validWeather = {
           icon: 'partly-cloudy-day',
         },
         {
-          datetime: '08:00:00',
+          datetime: '08:00',
 
           temp: 66.1,
 
@@ -145,7 +145,7 @@ export const validWeather = {
           icon: 'partly-cloudy-day',
         },
         {
-          datetime: '09:00:00',
+          datetime: '09:00',
 
           temp: 69.7,
 
@@ -159,7 +159,7 @@ export const validWeather = {
           icon: 'partly-cloudy-day',
         },
         {
-          datetime: '10:00:00',
+          datetime: '10:00',
 
           temp: 75.1,
 
@@ -173,7 +173,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '11:00:00',
+          datetime: '11:00',
 
           temp: 76.9,
 
@@ -187,7 +187,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '12:00:00',
+          datetime: '12:00',
 
           temp: 78.7,
 
@@ -201,7 +201,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '13:00:00',
+          datetime: '13:00',
 
           temp: 80.5,
 
@@ -215,7 +215,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '14:00:00',
+          datetime: '14:00',
 
           temp: 82.3,
 
@@ -229,7 +229,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '15:00:00',
+          datetime: '15:00',
 
           temp: 84.1,
 
@@ -243,7 +243,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '16:00:00',
+          datetime: '16:00',
 
           temp: 84.1,
 
@@ -257,7 +257,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '17:00:00',
+          datetime: '17:00',
 
           temp: 84.1,
 
@@ -271,7 +271,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '18:00:00',
+          datetime: '18:00',
 
           temp: 84.1,
 
@@ -285,7 +285,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '19:00:00',
+          datetime: '19:00',
 
           temp: 84.1,
 
@@ -299,7 +299,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '20:00:00',
+          datetime: '20:00',
 
           temp: 80.5,
 
@@ -313,7 +313,7 @@ export const validWeather = {
           icon: 'clear-day',
         },
         {
-          datetime: '21:00:00',
+          datetime: '21:00',
 
           temp: 75.1,
 
@@ -327,7 +327,7 @@ export const validWeather = {
           icon: 'clear-night',
         },
         {
-          datetime: '22:00:00',
+          datetime: '22:00',
 
           temp: 78.3,
 
@@ -341,7 +341,7 @@ export const validWeather = {
           icon: 'clear-night',
         },
         {
-          datetime: '23:00:00',
+          datetime: '23:00',
 
           temp: 76.6,
 
@@ -359,7 +359,7 @@ export const validWeather = {
   ],
 
   currentConditions: {
-    datetime: '21:50:00',
+    datetime: '21:50',
     temp: 71.1,
     humidity: 86.7,
     precipprob: 0,

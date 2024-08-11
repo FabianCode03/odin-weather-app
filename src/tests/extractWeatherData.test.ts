@@ -1,6 +1,6 @@
 import { extractWeatherData } from '../modules/extractWeatherData';
-import { validWeatherJSON } from '../utils/validWeatherJSON';
-import { validWeather } from '../utils/validWeather';
+import { validWeatherJSON } from '../data/validWeatherJSON';
+import { validWeather } from '../data/validWeather';
 
 describe('extractWeatherData', () => {
   test('should return validWeather', () => {
