@@ -1,90 +1,48 @@
-// TODO: extract interfaces and types in separate files
-
-interface Date {
-  date: string;
-}
-
-interface Time {
-  time: string;
-}
-
-interface Description {
-  description: string;
-}
-
-interface SunCycle {
-  sunrise: string;
-  sunset: string;
-}
-
-interface Properties {
-  conditions: string;
-  icon: string;
-  temp: number;
-  humidity: number;
-  precipprob: number;
-  preciptype: string[];
-}
-
-interface Hour extends Properties, Time {}
-
-interface Day extends Properties, Date, Description, SunCycle {
-  tempMax: number;
-  tempMin: number;
-  hours: Hour[];
-}
-
-interface CurrentConditions extends Properties, Time, SunCycle {}
-
-type WeatherData = {
-  resolvedAddress: string;
-  description: string;
-  days: Day[];
-  currentConditions: CurrentConditions;
-};
+import { WeatherData } from '../types/weatherTypes';
 
 export async function extractWeatherData(json: any): Promise<WeatherData> {
   // return an example object to make the test pass
   return {
-    resolvedAddress: 'London, UK',
-    description: 'Clear',
+    resolvedAddress: 'Friedrichshafen, Baden-Württemberg, Deutschland',
+    description:
+      'Similar temperatures continuing with a chance of rain multiple days.',
     days: [
       {
-        date: '2021-03-01',
-        description: 'Clear',
-        sunrise: '06:30',
-        sunset: '18:30',
-        tempMax: 15,
-        tempMin: 5,
-        conditions: 'Clear',
-        icon: '01d',
-        temp: 10,
+        date: '2024-08-11',
+        description: 'Becoming cloudy in the afternoon with storms possible.',
+        sunrise: '06:12:54',
+        sunset: '20:40:48',
+        tempMax: 84.6,
+        tempMin: 62.5,
+        conditions: 'Rain, Partially cloudy',
+        icon: 'rain',
+        temp: 74.4,
         humidity: 80,
-        precipprob: 0,
-        preciptype: [],
+        precipprob: 87.1,
+        preciptype: ['rain'],
         hours: [
           {
-            time: '00:00',
+            time: '00:00:00',
             conditions: 'Clear',
-            icon: '01d',
-            temp: 10,
-            humidity: 80,
+            icon: 'clear-night',
+            temp: 67.9,
+            humidity: 100,
             precipprob: 0,
-            preciptype: [],
+            preciptype: null,
           },
         ],
       },
     ],
     currentConditions: {
-      time: '12:00',
+      time: '06:20:00',
       conditions: 'Clear',
-      icon: '01d',
-      temp: 10,
-      humidity: 80,
+      icon: 'clear-day',
+      temp: 64.5,
+      humidity: 93.2,
       precipprob: 0,
-      preciptype: [],
-      sunrise: '06:30',
-      sunset: '18:30',
+      preciptype: null,
+      sunrise: '06:12:54',
+      sunset: '20:40:48',
     },
   };
 }
