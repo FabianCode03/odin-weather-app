@@ -4,7 +4,7 @@ export const validWeather = {
     'Similar temperatures continuing with a chance of rain multiple days.',
   days: [
     {
-      datetime: '2024-08-10',
+      datetime: '10 Aug 2024',
       tempmax: 84.1,
       tempmin: 60.7,
       temp: 73.9,
