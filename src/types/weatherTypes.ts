@@ -1,9 +1,5 @@
-export interface Date {
-  date: string;
-}
-
-export interface Time {
-  time: string;
+export interface DateTime {
+  datetime: string;
 }
 
 export interface Description {
@@ -24,15 +20,15 @@ export interface Properties {
   preciptype: string[] | null;
 }
 
-export interface Hour extends Properties, Time {}
+export interface Hour extends Properties, DateTime {}
 
-export interface Day extends Properties, Date, Description, SunCycle {
-  tempMax: number;
-  tempMin: number;
+export interface Day extends Properties, DateTime, Description, SunCycle {
+  tempmax: number;
+  tempmin: number;
   hours: Hour[];
 }
 
-export interface CurrentConditions extends Properties, Time, SunCycle {}
+export interface CurrentConditions extends Properties, DateTime, SunCycle {}
 
 export interface WeatherData extends Description {
   resolvedAddress: string;
