@@ -88,6 +88,7 @@ export function extractWeatherData(json: any): WeatherData {
     const { resolvedAddress, description, days, currentConditions } = json;
 
     const weatherData: WeatherData = {
+      tempUnit: '°F',
       resolvedAddress,
       description,
       days: days.map(extractDay),
