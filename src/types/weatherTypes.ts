@@ -34,9 +34,8 @@ export interface Day extends Properties, Date, Description, SunCycle {
 
 export interface CurrentConditions extends Properties, Time, SunCycle {}
 
-export type WeatherData = {
+export interface WeatherData extends Description {
   resolvedAddress: string;
-  description: string;
   days: Day[];
   currentConditions: CurrentConditions;
-};
+}

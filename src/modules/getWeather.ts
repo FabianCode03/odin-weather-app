@@ -4,7 +4,6 @@ export async function getWeather(city: string): Promise<any> {
 
   try {
     const response = await fetch(URL);
-    console.log(response);
 
     if (response.status !== 200) {
       throw new Error(`Status != 200: ${response.status}`);
