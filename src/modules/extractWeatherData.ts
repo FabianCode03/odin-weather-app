@@ -1,6 +1,6 @@
 import { WeatherData } from '../types/weatherTypes';
 
-export async function extractWeatherData(json: any): Promise<WeatherData> {
+export function extractWeatherData(json: any): WeatherData {
   // return an example object to make the test pass
   return {
     resolvedAddress: 'Friedrichshafen, Baden-Württemberg, Deutschland',

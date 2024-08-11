@@ -1,4 +1,4 @@
-import { getWeather } from './getWeather';
+import { getWeather } from '../modules/getWeather';
 
 global.fetch = jest.fn();
 
