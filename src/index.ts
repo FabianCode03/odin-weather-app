@@ -8,7 +8,3 @@ const header = Header();
 if (app) {
   app.appendChild(header);
 }
-
-// getWeather('friedrichshafen')
-//   .then((msg) => console.log(msg))
-//   .catch((err) => console.error(err.message));
