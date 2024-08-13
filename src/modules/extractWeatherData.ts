@@ -1,13 +1,13 @@
 import {
-  WeatherData,
-  Day,
-  Hour,
-  CurrentConditions,
+  type WeatherData,
+  type Day,
+  type Hour,
+  type CurrentConditions,
 } from '../types/weatherTypes';
 import { isValidWeatherData } from './isValidWeatherData';
 import { formatDateTime } from '../utils/formatDateTime';
 
-function extractHour(hour: any): Hour {
+function extractHour(hour: Hour): Hour {
   const { datetime, conditions, icon, temp, humidity, precipprob, preciptype } =
     hour;
   return {
@@ -21,7 +21,7 @@ function extractHour(hour: any): Hour {
   };
 }
 
-function extractDay(day: any): Day {
+function extractDay(day: Day): Day {
   const {
     datetime,
     description,
@@ -54,7 +54,9 @@ function extractDay(day: any): Day {
   };
 }
 
-function extractCurrentConditions(currentConditions: any): CurrentConditions {
+function extractCurrentConditions(
+  currentConditions: CurrentConditions,
+): CurrentConditions {
   const {
     datetime,
     conditions,

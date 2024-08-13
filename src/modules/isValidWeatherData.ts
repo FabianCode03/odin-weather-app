@@ -1,4 +1,4 @@
-import { WeatherData } from '../types/weatherTypes';
+import { type WeatherData } from '../types/weatherTypes';
 import { isString, isNumber, isNullableStringArray } from '../utils/validation';
 
 const isValidHour = (data: any): boolean => {
@@ -46,12 +46,18 @@ const isValidCurrentConditions = (weatherJSON: any): boolean => {
   );
 };
 
-export const isValidWeatherData = (data: any): data is WeatherData => {
+export const isValidWeatherData = (data: unknown): data is WeatherData => {
+  if (data === null || typeof data !== 'object') {
+    return false;
+  }
+
+  const weatherData = data as Record<string, unknown>;
+
   return (
-    isString(data.resolvedAddress) &&
-    isString(data.description) &&
-    Array.isArray(data.days) &&
-    data.days.every(isValidDay) &&
-    isValidCurrentConditions(data.currentConditions)
+    isString(weatherData.resolvedAddress) &&
+    isString(weatherData.description) &&
+    Array.isArray(weatherData.days) &&
+    weatherData.days.every(isValidDay) &&
+    isValidCurrentConditions(weatherData.currentConditions)
   );
 };

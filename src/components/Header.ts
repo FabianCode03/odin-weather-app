@@ -1,4 +1,4 @@
-export function Header() {
+export function Header(): HTMLElement {
   // create elements
   const header = document.createElement('header');
   const title = document.createElement('h1');

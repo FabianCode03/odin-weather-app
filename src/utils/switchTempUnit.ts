@@ -1,4 +1,4 @@
-import { WeatherData } from '../types/weatherTypes';
+import { type WeatherData } from '../types/weatherTypes';
 
 function convertCelsiusToFahrenheit(temp: number): number {
   return parseFloat(((temp * 9) / 5 + 32).toFixed(1));

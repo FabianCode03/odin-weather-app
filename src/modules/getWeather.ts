@@ -10,7 +10,11 @@ export async function getWeather(city: string): Promise<any> {
     }
     const data = await response.json();
     return data;
-  } catch (error) {
-    throw new Error(`Failed to fetch data: ${error}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to fetch data: ${error.message}`);
+    } else {
+      throw new Error('Failed to fetch data: Unknown error');
+    }
   }
 }
