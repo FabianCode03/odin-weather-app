@@ -1,8 +1,8 @@
 :root {
   --page-bg-color: #e0eafc;
   --header-bg-color: #1e3c72;
-  --title-color: #ffffff;
-  --widget-bg-color: #ffffff;
+  --title-color: #f0f8ff;
+  --widget-bg-color: #f0f8ff;
   --widget-border-radius: 15px;
   --widget-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   --primary-font-color: #333333;
@@ -63,4 +63,43 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+}
+
+.card {
+  background-color: var(--widget-bg-color);
+  border-radius: var(--widget-border-radius);
+  box-shadow: var(--widget-box-shadow);
+  margin: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-inline: var(--padding);
+  padding-top: var(--padding);
+  border-bottom: 4px solid var(--page-bg-color);
+}
+
+.card-title {
+  color: var(--primary-font-color);
+  font-size: var(--title-font-size);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-info-corner {
+  color: var(--secondary-font-color);
+  font-size: var(--info-font-size);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  color: var(--primary-font-color);
+  font-size: var(--standard-font-size);
+  font-weight: 400;
+  padding-inline: var(--padding);
+  padding-bottom: var(--padding);
 }
