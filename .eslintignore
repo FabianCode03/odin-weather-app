@@ -1,5 +1,6 @@
 webpack.common.js
 webpack.dev.js
 webpack.prod.js
-
 babel.config.js
+declarations.d.ts
+jest.config.js
