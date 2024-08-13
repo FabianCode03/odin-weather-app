@@ -1,49 +1,36 @@
-import { type WeatherData } from '../types/weatherTypes';
+import { Card } from './Card';
+import type { WeatherData } from '../types/weatherTypes';
 
-export class CurrentWeather {
-  private readonly weather: WeatherData;
+export function CurrentWeather(weather: WeatherData): HTMLElement {
+  //  create elements
+  const cardBody = document.createElement('div');
+  const currentTemp = document.createElement('h3');
+  const weatherIcon = document.createElement('img');
+  const conditions = document.createElement('p');
+  const preciptype = document.createElement('p');
+  const precipprob = document.createElement('p');
+  const humidity = document.createElement('p');
 
-  constructor(weather: WeatherData) {
-    this.weather = weather;
-  }
+  // add content
+  currentTemp.textContent = `${weather.currentConditions.temp} ${weather.tempUnit}`;
+  conditions.textContent = weather.currentConditions.conditions;
 
-  public render(): string {
-    const { resolvedAddress, currentConditions, tempUnit, description } =
-      this.weather;
+  // add classes
+  cardBody.classList.add('card-body');
+  currentTemp.classList.add('current-temp');
+  weatherIcon.classList.add('weather-icon');
+  conditions.classList.add('conditions');
+  preciptype.classList.add('preciptype');
+  precipprob.classList.add('precipprob');
+  humidity.classList.add('humidity');
 
-    const {
-      icon,
-      conditions,
-      temp,
-      humidity,
-      precipprob,
-      preciptype,
-      sunrise,
-      sunset,
-      datetime,
-    } = currentConditions;
+  // assemble
+  cardBody.appendChild(currentTemp);
+  cardBody.appendChild(conditions);
+  // cardBody.appendChild(weatherIcon);
+  // cardBody.appendChild(preciptype);
+  // cardBody.appendChild(precipprob);
+  // cardBody.appendChild(humidity);
 
-    return `
-        <div class="weather-widget">
-          <h2 class="location">${resolvedAddress}</h2>
-          <div class="weather-details">
-            <div class="weather-icon">
-              <img src="${icon}" alt="${conditions}" />
-            </div>
-            <div class="weather-info">
-              <div class="temperature">${temp}${tempUnit}</div>
-              <div class="conditions">${conditions}</div>
-              <div class="additional-info">
-                <p><strong>Humidity:</strong> ${humidity}%</p>
-                <p><strong>Precipitation:</strong> ${precipprob}% (${preciptype?.join(', ') ?? ''})</p>
-                <p><strong>Sunrise:</strong> ${sunrise}</p>
-                <p><strong>Sunset:</strong> ${sunset}</p>
-              </div>
-            </div>
-          </div>
-          <div class="description">${description}</div>
-          <div class="datetime">${datetime}</div>
-        </div>
-      `;
-  }
+  return Card('Current Weather', weather.currentConditions.datetime, cardBody);
 }
