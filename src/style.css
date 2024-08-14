@@ -103,3 +103,33 @@ body {
   padding-inline: var(--padding);
   padding-bottom: var(--padding);
 }
+
+.current-weather-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.weather-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.temp-container {
+  display: flex;
+  align-items: center;
+}
+
+.current-temp {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.temp-unit {
+  align-self: flex-end;
+  margin-left: -16px;
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--secondary-font-color);
+}
