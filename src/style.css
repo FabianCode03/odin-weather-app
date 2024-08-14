@@ -169,7 +169,20 @@ body {
 .info-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: var(--padding);
+}
+
+.info-icon {
+  width: 50px;
+  height: auto;
+  margin-block: -10px;
+  padding-right: 10px;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-right: 4px solid var(--page-bg-color);
 }
 
 .info-title {
@@ -180,4 +193,5 @@ body {
 .info-content {
   font-size: var(--info-font-size);
   font-weight: 400;
+  margin-left: auto;
 }
