@@ -48,8 +48,8 @@ function extractDay(day: Day): Day {
     preciptype,
     tempmax,
     tempmin,
-    sunrise,
-    sunset,
+    sunrise: formatDateTime(sunrise),
+    sunset: formatDateTime(sunset),
     hours: hours.map(extractHour),
   };
 }
@@ -76,8 +76,8 @@ function extractCurrentConditions(
     humidity,
     precipprob,
     preciptype,
-    sunrise,
-    sunset,
+    sunrise: formatDateTime(sunrise),
+    sunset: formatDateTime(sunset),
   };
 }
 
