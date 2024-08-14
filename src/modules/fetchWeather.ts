@@ -19,6 +19,6 @@ export async function fetchWeather(city: string): Promise<any> {
     if (error.message === 'City not found') {
       throw new Error('City not found');
     }
-    throw error;
+    throw new Error('Failed to fetch data');
   }
 }

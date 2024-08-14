@@ -2,7 +2,7 @@ import { fetchWeather } from '../modules/fetchWeather';
 
 global.fetch = jest.fn();
 
-describe('getWeather', () => {
+describe('fetchWeather', () => {
   const city = 'Berlin';
   const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5';
   const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}`;
@@ -37,7 +37,7 @@ describe('getWeather', () => {
       }),
     });
 
-    await expect(fetchWeather(city)).rejects.toThrow('Status != 200: 400');
+    await expect(fetchWeather(city)).rejects.toThrow('City not found');
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(URL);
   });
