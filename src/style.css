@@ -37,6 +37,7 @@ body {
   align-items: center;
   background-color: var(--header-bg-color);
   box-shadow: var(--widget-box-shadow);
+  padding: 5px;
 }
 
 .logo-container {
@@ -56,8 +57,8 @@ body {
 }
 
 .search-icon-container {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin: 0 20px;
   background-size: contain;
   background-repeat: no-repeat;
