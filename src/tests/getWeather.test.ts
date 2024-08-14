@@ -1,4 +1,4 @@
-import { getWeather } from '../modules/getWeather';
+import { fetchWeather } from '../modules/fetchWeather';
 
 global.fetch = jest.fn();
 
@@ -19,7 +19,7 @@ describe('getWeather', () => {
       json: jest.fn().mockResolvedValueOnce(mockResponse),
     });
 
-    const data = await getWeather(city);
+    const data = await fetchWeather(city);
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(URL);
     expect(typeof data).toBe('object');
@@ -37,7 +37,7 @@ describe('getWeather', () => {
       }),
     });
 
-    await expect(getWeather(city)).rejects.toThrow('Status != 200: 400');
+    await expect(fetchWeather(city)).rejects.toThrow('Status != 200: 400');
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(URL);
   });
@@ -48,7 +48,7 @@ describe('getWeather', () => {
       json: jest.fn().mockRejectedValueOnce(new Error('Invalid JSON')),
     });
 
-    await expect(getWeather(city)).rejects.toThrow('Failed to fetch data');
+    await expect(fetchWeather(city)).rejects.toThrow('Failed to fetch data');
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(URL);
   });
@@ -56,7 +56,7 @@ describe('getWeather', () => {
   it('should throw an error if fetch fails', async () => {
     (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network Error'));
 
-    await expect(getWeather(city)).rejects.toThrow('Failed to fetch data');
+    await expect(fetchWeather(city)).rejects.toThrow('Failed to fetch data');
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(URL);
   });

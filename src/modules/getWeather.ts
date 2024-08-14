@@ -1,20 +1,17 @@
-export async function getWeather(city: string): Promise<any> {
-  const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5';
-  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}`;
+import { fetchWeather } from './fetchWeather';
+import { extractWeatherData } from './extractWeatherData';
+import { switchTempUnit } from '../utils/switchTempUnit';
+import type { WeatherData } from '../types/weatherTypes';
 
+export async function getWeather(city: string): Promise<WeatherData> {
   try {
-    const response = await fetch(URL);
-
-    if (response.status !== 200) {
-      throw new Error(`Status != 200: ${response.status}`);
+    const data = await fetchWeather(city);
+    const weatherData = extractWeatherData(data);
+    return switchTempUnit(weatherData);
+  } catch (error) {
+    if ((error as Error).message === 'City not found') {
+      throw new Error('City not found');
     }
-    const data = await response.json();
-    return data;
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      throw new Error(`Failed to fetch data: ${error.message}`);
-    } else {
-      throw new Error('Failed to fetch data: Unknown error');
-    }
+    throw error;
   }
 }
