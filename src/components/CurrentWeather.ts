@@ -1,19 +1,14 @@
 import { Card } from './Card';
 import type { WeatherData } from '../types/weatherTypes';
 import { Hero } from './Hero';
+import { InfoRow } from './InfoRow';
 
 export function CurrentWeather(weather: WeatherData): HTMLElement {
   //  create elements
   const cardBody = document.createElement('div');
-  const preciptype = document.createElement('p');
-  const precipprob = document.createElement('p');
-  const humidity = document.createElement('p');
 
   // add classes
   cardBody.classList.add('card-body', 'current-weather-body');
-  preciptype.classList.add('preciptype');
-  precipprob.classList.add('precipprob');
-  humidity.classList.add('humidity');
 
   // create hero element using Hero component
   const hero = Hero({
@@ -24,14 +19,30 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
     conditions: weather.currentConditions.conditions,
   });
 
+  // create InfoRow elements using InfoRow component
+  const humidityElement = InfoRow(
+    'Humidity',
+    `${weather.currentConditions.humidity}%`,
+  );
+
+  const sunriseElement = InfoRow('Sunrise', weather.currentConditions.sunrise);
+
+  const sunsetElement = InfoRow('Sunset', weather.currentConditions.sunset);
+
+  // assemble
   cardBody.appendChild(hero);
+  cardBody.appendChild(humidityElement);
+  cardBody.appendChild(sunriseElement);
+  cardBody.appendChild(sunsetElement);
 
   const currentWeather = Card(
     'Current Weather',
     weather.currentConditions.datetime.concat(' 🌎'),
     cardBody,
   );
+
   currentWeather.id = 'current-weather';
+  cardBody.lastElementChild?.classList.remove('separator');
 
   return currentWeather;
 }

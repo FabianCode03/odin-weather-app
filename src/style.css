@@ -164,3 +164,19 @@ body {
   padding-bottom: var(--padding);
   border-bottom: 4px solid var(--page-bg-color);
 }
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--padding);
+}
+
+.info-title {
+  font-size: var(--info-font-size);
+  font-weight: 600;
+}
+
+.info-content {
+  font-size: var(--info-font-size);
+  font-weight: 400;
+}
