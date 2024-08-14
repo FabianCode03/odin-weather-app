@@ -104,20 +104,31 @@ body {
   padding-bottom: var(--padding);
 }
 
-.current-weather-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.current-weather-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr, 1fr;
+  grid-template-areas:
+    'icon       temp'
+    'conditions conditions';
+  justify-content: center;
+  align-items: center;
+  gap: var(--padding);
 }
 
 .weather-icon {
+  grid-area: icon;
+  align-self: center;
+  justify-self: center;
   width: 60px;
   height: 60px;
 }
 
 .temp-container {
+  grid-area: temp;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .current-temp {
@@ -132,4 +143,17 @@ body {
   font-size: 18px;
   font-weight: 700;
   color: var(--secondary-font-color);
+}
+
+.conditions {
+  grid-area: conditions;
+  align-self: center;
+  justify-self: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.separator {
+  padding-bottom: var(--padding);
+  border-bottom: 4px solid var(--page-bg-color);
 }

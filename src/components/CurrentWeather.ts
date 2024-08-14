@@ -6,6 +6,8 @@ import { toCamelCase } from '../utils/toCamelCase';
 export function CurrentWeather(weather: WeatherData): HTMLElement {
   //  create elements
   const cardBody = document.createElement('div');
+  const hero = document.createElement('div');
+  // const info = document.createElement('div');
   const tempContainer = document.createElement('div');
   const currentTemp = document.createElement('h3');
   const tempUnit = document.createElement('span');
@@ -27,6 +29,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
 
   // add classes
   cardBody.classList.add('card-body', 'current-weather-body');
+  hero.classList.add('current-weather-hero', 'separator');
   tempContainer.classList.add('temp-container');
   currentTemp.classList.add('current-temp');
   tempUnit.classList.add('temp-unit');
@@ -37,14 +40,21 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   humidity.classList.add('humidity');
 
   // assemble
-  cardBody.appendChild(weatherIcon);
   tempContainer.appendChild(currentTemp);
   tempContainer.appendChild(tempUnit);
-  cardBody.appendChild(tempContainer);
-  cardBody.appendChild(conditions);
-  // cardBody.appendChild(preciptype);
-  // cardBody.appendChild(precipprob);
-  // cardBody.appendChild(humidity);
 
-  return Card('Current Weather', weather.currentConditions.datetime, cardBody);
+  hero.appendChild(weatherIcon);
+  hero.appendChild(tempContainer);
+  hero.appendChild(conditions);
+
+  cardBody.appendChild(hero);
+
+  const currentWeather = Card(
+    'Current Weather',
+    weather.currentConditions.datetime,
+    cardBody,
+  );
+  currentWeather.id = 'current-weather';
+
+  return currentWeather;
 }
