@@ -1,7 +1,6 @@
 import { Card } from './Card';
 import type { WeatherData } from '../types/weatherTypes';
 import { Hero } from './Hero';
-import { InfoRow } from './InfoRow';
 
 export function CurrentWeather(weather: WeatherData): HTMLElement {
   //  create elements
@@ -19,21 +18,8 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
     conditions: weather.currentConditions.conditions,
   });
 
-  // create InfoRow elements using InfoRow component
-  const humidityElement = InfoRow(
-    'Humidity',
-    `${weather.currentConditions.humidity}%`,
-  );
-
-  const sunriseElement = InfoRow('Sunrise', weather.currentConditions.sunrise);
-
-  const sunsetElement = InfoRow('Sunset', weather.currentConditions.sunset);
-
   // assemble
   cardBody.appendChild(hero);
-  cardBody.appendChild(humidityElement);
-  cardBody.appendChild(sunriseElement);
-  cardBody.appendChild(sunsetElement);
 
   const currentWeather = Card(
     'Current Weather',
