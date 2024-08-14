@@ -7,6 +7,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   //  create elements
   const cardBody = document.createElement('div');
   const hero = document.createElement('div');
+  const address = document.createElement('p');
   // const info = document.createElement('div');
   const tempContainer = document.createElement('div');
   const currentTemp = document.createElement('h3');
@@ -18,6 +19,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   const humidity = document.createElement('p');
 
   // add content
+  address.textContent = weather.resolvedAddress;
   currentTemp.textContent = `${weather.currentConditions.temp.toFixed(0)}°`;
   tempUnit.textContent = `${weather.tempUnit.slice(1)}`;
   conditions.textContent = weather.currentConditions.conditions;
@@ -30,6 +32,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   // add classes
   cardBody.classList.add('card-body', 'current-weather-body');
   hero.classList.add('current-weather-hero', 'separator');
+  address.classList.add('address');
   tempContainer.classList.add('temp-container');
   currentTemp.classList.add('current-temp');
   tempUnit.classList.add('temp-unit');
@@ -43,6 +46,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   tempContainer.appendChild(currentTemp);
   tempContainer.appendChild(tempUnit);
 
+  hero.appendChild(address);
   hero.appendChild(weatherIcon);
   hero.appendChild(tempContainer);
   hero.appendChild(conditions);
@@ -51,7 +55,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
 
   const currentWeather = Card(
     'Current Weather',
-    weather.currentConditions.datetime,
+    weather.currentConditions.datetime.concat(' 🌎'),
     cardBody,
   );
   currentWeather.id = 'current-weather';

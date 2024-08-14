@@ -1,9 +1,9 @@
 import './style.css';
 import { Header } from './components/Header';
 import { CurrentWeather } from './components/CurrentWeather';
-import { validWeatherJSON } from './data/validWeatherJSON';
+// import { validWeatherJSON } from './data/validWeatherJSON';
 
-// import { getWeather } from './modules/getWeather';
+import { getWeather } from './modules/getWeather';
 import { extractWeatherData } from './modules/extractWeatherData';
 import { switchTempUnit } from './utils/switchTempUnit';
 
@@ -17,27 +17,32 @@ if (app !== null) {
   app.appendChild(body);
 }
 
-const exampleWeather = switchTempUnit(extractWeatherData(validWeatherJSON));
+// const exampleWeather = switchTempUnit(extractWeatherData(validWeatherJSON));
 
-const currentWeather = CurrentWeather(exampleWeather);
+// const currentWeather = CurrentWeather(exampleWeather);
+// const currentWeather2 = CurrentWeather(exampleWeather);
+// const currentWeather3 = CurrentWeather(exampleWeather);
 
-body.appendChild(currentWeather);
+// body.appendChild(currentWeather);
+// body.appendChild(currentWeather2);
+// body.appendChild(currentWeather3);
 
-// Promise.all([
-//   getWeather('irvine'),
-//   getWeather('new york'),
-//   getWeather('london'),
-//   getWeather('tokyo'),
-//   getWeather('sydney'),
-// ])
-//   .then((results) => {
-//     results.forEach((data) => {
-//       const weatherData = extractWeatherData(data);
-//       const weatherInCelsius = switchTempUnit(weatherData);
-//       const currentWeatherCard = CurrentWeather(weatherInCelsius);
-//       body.appendChild(currentWeatherCard);
-//     });
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
+Promise.all([
+  getWeather('irvine'),
+  getWeather('new york'),
+  getWeather('london'),
+  getWeather('tokyo'),
+  getWeather('sydney'),
+  getWeather('friedrichshafen'),
+])
+  .then((results) => {
+    results.forEach((data) => {
+      const weatherData = extractWeatherData(data);
+      const weatherInCelsius = switchTempUnit(weatherData);
+      const currentWeatherCard = CurrentWeather(weatherInCelsius);
+      body.appendChild(currentWeatherCard);
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
