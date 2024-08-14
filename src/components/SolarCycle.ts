@@ -17,7 +17,7 @@ export function SolarCycle(sunrise: string, sunset: string): HTMLElement {
   const sunsetRow = InfoRow('Sunset', sunset, sunsetIcon);
   const lengthOfDayRow = InfoRow(
     'Length of Day',
-    `${calcLengthOfDay(sunrise, sunset)} hours`,
+    calcLengthOfDay(sunrise, sunset),
     solarCycleIcon,
   );
 

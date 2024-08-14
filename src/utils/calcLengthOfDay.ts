@@ -1,12 +1,15 @@
-export function calcLengthOfDay(sunrise: string, sunset: string): number {
-  const [sunriseHour, sunriseMinute] = sunrise.split(':').map(Number);
-  const [sunsetHour, sunsetMinute] = sunset.split(':').map(Number);
+export function calcLengthOfDay(sunrise: string, sunset: string): string {
+  const [sunriseHours, sunriseMinutes] = sunrise.split(':').map(Number);
+  const [sunsetHours, sunsetMinutes] = sunset.split(':').map(Number);
 
-  const sunriseInMinutes = sunriseHour * 60 + sunriseMinute;
-  const sunsetInMinutes = sunsetHour * 60 + sunsetMinute;
+  let totalMinutes =
+    sunsetHours * 60 + sunsetMinutes - (sunriseHours * 60 + sunriseMinutes);
+  if (totalMinutes < 0) {
+    totalMinutes += 24 * 60; // handle cases where sunset is after midnight
+  }
 
-  const lengthOfDayInMinutes = sunsetInMinutes - sunriseInMinutes;
-  const lengthOfDayInHours = lengthOfDayInMinutes / 60;
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
 
-  return Number(lengthOfDayInHours.toFixed(2));
+  return `${hours}h ${minutes}m`;
 }
