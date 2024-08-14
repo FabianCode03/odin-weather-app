@@ -1,5 +1,7 @@
 import { Card } from './Card';
 import type { WeatherData } from '../types/weatherTypes';
+import { weatherIcons } from '../img/weather_Icons/weatherIcons';
+import { toCamelCase } from '../utils/toCamelCase';
 
 export function CurrentWeather(weather: WeatherData): HTMLElement {
   //  create elements
@@ -14,6 +16,11 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   // add content
   currentTemp.textContent = `${weather.currentConditions.temp} ${weather.tempUnit}`;
   conditions.textContent = weather.currentConditions.conditions;
+  weatherIcon.src = weatherIcons.clearDay;
+
+  // Dynamically assign the weather icon based on conditions
+  const condition = toCamelCase(weather.currentConditions.icon);
+  weatherIcon.src = weatherIcons[condition];
 
   // add classes
   cardBody.classList.add('card-body');
@@ -25,6 +32,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   humidity.classList.add('humidity');
 
   // assemble
+  cardBody.appendChild(weatherIcon);
   cardBody.appendChild(currentTemp);
   cardBody.appendChild(conditions);
   // cardBody.appendChild(weatherIcon);
