@@ -6,7 +6,7 @@ import {
   TooManyRequestsError,
   InternalServerError,
   JSONParsingError,
-  UnknownError,
+  UnknownFetchError,
 } from '../errors/fetchWeatherError';
 
 global.fetch = jest.fn();
@@ -104,6 +104,6 @@ describe('fetchWeather', () => {
 
     const result = await fetchWeather(city);
     expect(result.err).toBe(true);
-    expect(result.val).toBeInstanceOf(UnknownError);
+    expect(result.val).toBeInstanceOf(UnknownFetchError);
   });
 });

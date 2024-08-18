@@ -6,7 +6,7 @@ import {
   NotFoundError,
   TooManyRequestsError,
   InternalServerError,
-  UnknownError,
+  UnknownFetchError,
   JSONParsingError,
 } from '../errors/fetchWeatherError';
 
@@ -30,7 +30,7 @@ export async function fetchWeather(city: string): Promise<Result<unknown, FetchW
         return Err(new InternalServerError());
       default:
         if (response.status !== 200) {
-          return Err(new UnknownError(new Error(`Unexpected status code: ${response.status}`)));
+          return Err(new UnknownFetchError(new Error(`Unexpected status code: ${response.status}`)));
         }
     }
 
@@ -40,6 +40,6 @@ export async function fetchWeather(city: string): Promise<Result<unknown, FetchW
     if (error instanceof JSONParsingError) {
       return Err(new JSONParsingError());
     }
-    return Err(new UnknownError(error as Error));
+    return Err(new UnknownFetchError(error as Error));
   }
 }

@@ -51,7 +51,7 @@ export class InternalServerError extends FetchWeatherError {
   }
 }
 
-export class UnknownError extends FetchWeatherError {
+export class UnknownFetchError extends FetchWeatherError {
   constructor(originalError: Error) {
     super('UNKNOWN', `An unknown error occurred: ${originalError.message}`);
     this.originalError = originalError;
