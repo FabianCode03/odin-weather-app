@@ -1,8 +1,11 @@
-export function formatDateTime(datetime: string): string {
+import { Ok, Err, type Result } from 'ts-results';
+import { WrongDateTimeFormatError } from '../errors/wrongDateTimeFormatError';
+
+export function formatDateTime(datetime: string): Result<string, WrongDateTimeFormatError> {
   // datetime is a time
   if (/^\d{2}:\d{2}:\d{2}$/.test(datetime)) {
     const [hours, minutes] = datetime.split(':');
-    return `${hours}:${minutes}`;
+    return Ok(`${hours}:${minutes}`);
   }
 
   // datetime is a date
@@ -14,10 +17,8 @@ export function formatDateTime(datetime: string): string {
       timeZone: 'UTC',
     });
     const year = date.getUTCFullYear();
-    return `${day} ${month} ${year}`;
+    return Ok(`${day} ${month} ${year}`);
   }
 
-  throw new Error(
-    'Invalid datetime format. Expected format is HH:MM:SS or YYYY-MM-DD',
-  );
+  return Err(new WrongDateTimeFormatError());
 }
