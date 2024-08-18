@@ -14,6 +14,6 @@ describe('formatTime', () => {
 
   test('should throw an WrongDateTimeFormatError for invalid datetime formats', () => {
     const invalidDatetime = '2021-01-01 12:34:56';
-    expect(formatDateTime(invalidDatetime).err).toBeInstanceOf(WrongDateTimeFormatError);
+    expect(formatDateTime(invalidDatetime).val).toBeInstanceOf(WrongDateTimeFormatError);
   });
 });
