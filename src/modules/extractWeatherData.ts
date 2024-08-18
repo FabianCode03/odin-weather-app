@@ -67,7 +67,7 @@ function extractCurrentConditions(currentConditions: CurrentConditions): Current
 
 export function extractWeatherData(json: any): Result<WeatherData, ExtractWeatherDataError> {
   if (!isValidWeatherData(json)) {
-    return Err(new ExtractWeatherDataError('Invalid weather data: (missing required fields)'));
+    return Err(new ExtractWeatherDataError('Invalid weather data: (missing required fields or wrong types)'));
   }
 
   try {
