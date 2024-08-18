@@ -32,7 +32,11 @@ export async function fetchWeather(
         return Err(new InternalServerError());
       default:
         if (response.status !== 200) {
-          return Err(new Error(`Unexpected status code: ${response.status}`));
+          return Err(
+            new UnknownError(
+              new Error(`Unexpected status code: ${response.status}`),
+            ),
+          );
         }
     }
 
