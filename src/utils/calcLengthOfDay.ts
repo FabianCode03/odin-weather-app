@@ -1,4 +1,16 @@
-export function calcLengthOfDay(sunrise: string, sunset: string): string {
+import { Ok, Err, type Result } from 'ts-results';
+import { WrongDateTimeFormatError } from '../errors/wrongDateTimeFormatError';
+
+export function calcLengthOfDay(
+  sunrise: string,
+  sunset: string,
+): Result<string, WrongDateTimeFormatError> {
+  const formatMatch = sunrise.match(/(\d{2}):(\d{2})/);
+
+  if (formatMatch === null) {
+    return Err(new WrongDateTimeFormatError());
+  }
+
   const [sunriseHours, sunriseMinutes] = sunrise.split(':').map(Number);
   const [sunsetHours, sunsetMinutes] = sunset.split(':').map(Number);
 
@@ -11,5 +23,5 @@ export function calcLengthOfDay(sunrise: string, sunset: string): string {
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
 
-  return `${hours}h ${minutes}m`;
+  return Ok(`${hours}h ${minutes}m`);
 }
