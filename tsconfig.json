@@ -2,7 +2,8 @@
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "strictNullChecks": true
   },
   "include": ["./src/**/*", "./declarations.d.ts"],
   "exclude": ["node_modules", "dist"]
