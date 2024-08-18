@@ -1,11 +1,13 @@
 import { type WeatherData, type Day, type Hour, type CurrentConditions } from '../types/weatherTypes';
 import { isValidWeatherData } from './isValidWeatherData';
 import { formatDateTime } from '../utils/formatDateTime';
+import { Ok, Err, type Result } from 'ts-results';
+import { ExtractWeatherDataError } from '../errors/extractWeatherDataError';
 
 function extractHour(hour: Hour): Hour {
   const { datetime, conditions, icon, temp, humidity, precipprob, preciptype } = hour;
   return {
-    datetime: formatDateTime(datetime),
+    datetime: formatDateTime(datetime).unwrapOr('formatting error'),
     conditions,
     icon,
     temp,
@@ -32,7 +34,7 @@ function extractDay(day: Day): Day {
     hours,
   } = day;
   return {
-    datetime: formatDateTime(datetime),
+    datetime: formatDateTime(datetime).unwrapOr('formatting error'),
     description,
     conditions,
     icon,
@@ -42,8 +44,8 @@ function extractDay(day: Day): Day {
     preciptype,
     tempmax,
     tempmin,
-    sunrise: formatDateTime(sunrise),
-    sunset: formatDateTime(sunset),
+    sunrise: formatDateTime(sunrise).unwrapOr('formatting error'),
+    sunset: formatDateTime(sunset).unwrapOr('formatting error'),
     hours: hours.map(extractHour),
   };
 }
@@ -51,21 +53,21 @@ function extractDay(day: Day): Day {
 function extractCurrentConditions(currentConditions: CurrentConditions): CurrentConditions {
   const { datetime, conditions, icon, temp, humidity, precipprob, preciptype, sunrise, sunset } = currentConditions;
   return {
-    datetime: formatDateTime(datetime),
+    datetime: formatDateTime(datetime).unwrapOr('formatting error'),
     conditions,
     icon,
     temp,
     humidity,
     precipprob,
     preciptype,
-    sunrise: formatDateTime(sunrise),
-    sunset: formatDateTime(sunset),
+    sunrise: formatDateTime(sunrise).unwrapOr('formatting error'),
+    sunset: formatDateTime(sunset).unwrapOr('formatting error'),
   };
 }
 
-export function extractWeatherData(json: any): WeatherData {
+export function extractWeatherData(json: any): Result<WeatherData, ExtractWeatherDataError> {
   if (!isValidWeatherData(json)) {
-    throw new Error('Invalid weather data: (missing fields or invalid types)');
+    return Err(new ExtractWeatherDataError('Invalid weather data: (missing required fields)'));
   }
 
   try {
@@ -79,8 +81,8 @@ export function extractWeatherData(json: any): WeatherData {
       currentConditions: extractCurrentConditions(currentConditions),
     };
 
-    return weatherData;
+    return Ok(weatherData);
   } catch (error) {
-    throw new Error('Invalid weather data: (extracting data failed or formatting error)');
+    return Err(new ExtractWeatherDataError('Error extracting weather data', error as Error));
   }
 }
