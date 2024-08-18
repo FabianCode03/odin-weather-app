@@ -31,7 +31,7 @@ export async function fetchWeather(
       case 500:
         return Err(new InternalServerError());
       default:
-        if (!response.ok) {
+        if (response.status !== 200) {
           return Err(new Error(`Unexpected status code: ${response.status}`));
         }
     }
