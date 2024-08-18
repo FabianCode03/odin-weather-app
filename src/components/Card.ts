@@ -1,8 +1,4 @@
-export function Card(
-  title: string,
-  infoCorner: string,
-  body: HTMLElement,
-): HTMLElement {
+export function Card(title: string, infoCorner: string, body: HTMLElement): HTMLElement {
   // create elements
   const card = document.createElement('div');
   const cardHeader = document.createElement('div');

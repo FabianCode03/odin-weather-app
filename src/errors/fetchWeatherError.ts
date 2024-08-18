@@ -35,31 +35,19 @@ export class UnauthorizedError extends FetchWeatherError {
 
 export class NotFoundError extends FetchWeatherError {
   constructor() {
-    super(
-      'NOT_FOUND',
-      'The request cannot be matched to any valid API request endpoint structure',
-      404,
-    );
+    super('NOT_FOUND', 'The request cannot be matched to any valid API request endpoint structure', 404);
   }
 }
 
 export class TooManyRequestsError extends FetchWeatherError {
   constructor() {
-    super(
-      'TOO_MANY_REQUESTS',
-      'The request was rate-limited due to too many requests. Please try again later',
-      429,
-    );
+    super('TOO_MANY_REQUESTS', 'The request was rate-limited due to too many requests. Please try again later', 429);
   }
 }
 
 export class InternalServerError extends FetchWeatherError {
   constructor() {
-    super(
-      'INTERNAL_SERVER_ERROR',
-      'A general error has occurred processing the request',
-      500,
-    );
+    super('INTERNAL_SERVER_ERROR', 'A general error has occurred processing the request', 500);
   }
 }
 

@@ -9,9 +9,7 @@ function convertFahrenheitToCelsius(temp: number): number {
 }
 
 function convertTemperature(temp: number, toUnit: string): number {
-  return toUnit === '°F'
-    ? convertCelsiusToFahrenheit(temp)
-    : convertFahrenheitToCelsius(temp);
+  return toUnit === '°F' ? convertCelsiusToFahrenheit(temp) : convertFahrenheitToCelsius(temp);
 }
 
 export function switchTempUnit(weather: WeatherData): WeatherData {
@@ -31,10 +29,7 @@ export function switchTempUnit(weather: WeatherData): WeatherData {
     }
   }
 
-  newWeather.currentConditions.temp = convertTemperature(
-    newWeather.currentConditions.temp,
-    tempUnit,
-  );
+  newWeather.currentConditions.temp = convertTemperature(newWeather.currentConditions.temp, tempUnit);
 
   return newWeather;
 }

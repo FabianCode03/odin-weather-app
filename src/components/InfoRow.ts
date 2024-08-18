@@ -1,8 +1,4 @@
-export function InfoRow(
-  title: string,
-  info: string | number,
-  prependingIcon: string | null,
-): HTMLElement {
+export function InfoRow(title: string, info: string | number, prependingIcon: string | null): HTMLElement {
   // create elements
   const infoRow = document.createElement('div');
   const infoTitle = document.createElement('p');

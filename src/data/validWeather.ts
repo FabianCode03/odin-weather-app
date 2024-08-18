@@ -1,8 +1,7 @@
 export const validWeather = {
   tempUnit: '°F',
   resolvedAddress: 'Friedrichshafen, Baden-Württemberg, Deutschland',
-  description:
-    'Similar temperatures continuing with a chance of rain multiple days.',
+  description: 'Similar temperatures continuing with a chance of rain multiple days.',
   days: [
     {
       datetime: '10 Aug 2024',

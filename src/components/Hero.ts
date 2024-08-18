@@ -9,13 +9,7 @@ interface HeroProps {
   conditions: string;
 }
 
-export function Hero({
-  address,
-  weatherIcon,
-  currentTemp,
-  tempUnit,
-  conditions,
-}: HeroProps): HTMLElement {
+export function Hero({ address, weatherIcon, currentTemp, tempUnit, conditions }: HeroProps): HTMLElement {
   const hero = document.createElement('div');
   const addressElement = document.createElement('p');
   const weatherIconElement = document.createElement('img');

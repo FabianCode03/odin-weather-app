@@ -1,15 +1,9 @@
-import {
-  type WeatherData,
-  type Day,
-  type Hour,
-  type CurrentConditions,
-} from '../types/weatherTypes';
+import { type WeatherData, type Day, type Hour, type CurrentConditions } from '../types/weatherTypes';
 import { isValidWeatherData } from './isValidWeatherData';
 import { formatDateTime } from '../utils/formatDateTime';
 
 function extractHour(hour: Hour): Hour {
-  const { datetime, conditions, icon, temp, humidity, precipprob, preciptype } =
-    hour;
+  const { datetime, conditions, icon, temp, humidity, precipprob, preciptype } = hour;
   return {
     datetime: formatDateTime(datetime),
     conditions,
@@ -54,20 +48,8 @@ function extractDay(day: Day): Day {
   };
 }
 
-function extractCurrentConditions(
-  currentConditions: CurrentConditions,
-): CurrentConditions {
-  const {
-    datetime,
-    conditions,
-    icon,
-    temp,
-    humidity,
-    precipprob,
-    preciptype,
-    sunrise,
-    sunset,
-  } = currentConditions;
+function extractCurrentConditions(currentConditions: CurrentConditions): CurrentConditions {
+  const { datetime, conditions, icon, temp, humidity, precipprob, preciptype, sunrise, sunset } = currentConditions;
   return {
     datetime: formatDateTime(datetime),
     conditions,
@@ -99,8 +81,6 @@ export function extractWeatherData(json: any): WeatherData {
 
     return weatherData;
   } catch (error) {
-    throw new Error(
-      'Invalid weather data: (extracting data failed or formatting error)',
-    );
+    throw new Error('Invalid weather data: (extracting data failed or formatting error)');
   }
 }

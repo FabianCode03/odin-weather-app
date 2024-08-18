@@ -6,8 +6,7 @@ export const validWeatherJSON = {
   address: 'friedrichshafen',
   timezone: 'Europe/Berlin',
   tzoffset: 2,
-  description:
-    'Similar temperatures continuing with a chance of rain multiple days.',
+  description: 'Similar temperatures continuing with a chance of rain multiple days.',
   days: [
     {
       datetime: '2024-08-10',
@@ -44,16 +43,7 @@ export const validWeatherJSON = {
       conditions: 'Partially cloudy',
       description: 'Clearing in the afternoon.',
       icon: 'partly-cloudy-day',
-      stations: [
-        '06258',
-        '03927',
-        'EDNY',
-        '04094',
-        '04704',
-        '02712',
-        'AT546',
-        '07403',
-      ],
+      stations: ['06258', '03927', 'EDNY', '04094', '04704', '02712', 'AT546', '07403'],
       source: 'comb',
       hours: [
         {
@@ -80,15 +70,7 @@ export const validWeatherJSON = {
           severerisk: 10,
           conditions: 'Clear',
           icon: 'clear-night',
-          stations: [
-            '06258',
-            '03927',
-            '04094',
-            '04704',
-            '02712',
-            'AT546',
-            '07403',
-          ],
+          stations: ['06258', '03927', '04094', '04704', '02712', 'AT546', '07403'],
           source: 'obs',
         },
         {
@@ -115,15 +97,7 @@ export const validWeatherJSON = {
           severerisk: 10,
           conditions: 'Partially cloudy',
           icon: 'partly-cloudy-night',
-          stations: [
-            '06258',
-            '03927',
-            '04094',
-            '04704',
-            '02712',
-            'AT546',
-            '07403',
-          ],
+          stations: ['06258', '03927', '04094', '04704', '02712', 'AT546', '07403'],
           source: 'obs',
         },
         {

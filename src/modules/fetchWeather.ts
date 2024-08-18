@@ -10,9 +10,7 @@ import {
   JSONParsingError,
 } from '../errors/fetchWeatherError';
 
-export async function fetchWeather(
-  city: string,
-): Promise<Result<unknown, FetchWeatherError>> {
+export async function fetchWeather(city: string): Promise<Result<unknown, FetchWeatherError>> {
   const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5';
   const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}`;
 
@@ -32,11 +30,7 @@ export async function fetchWeather(
         return Err(new InternalServerError());
       default:
         if (response.status !== 200) {
-          return Err(
-            new UnknownError(
-              new Error(`Unexpected status code: ${response.status}`),
-            ),
-          );
+          return Err(new UnknownError(new Error(`Unexpected status code: ${response.status}`)));
         }
     }
 

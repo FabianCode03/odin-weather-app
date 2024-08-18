@@ -21,11 +21,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   // assemble
   cardBody.appendChild(hero);
 
-  const currentWeather = Card(
-    'Current Weather',
-    weather.currentConditions.datetime.concat(' 🌎'),
-    cardBody,
-  );
+  const currentWeather = Card('Current Weather', weather.currentConditions.datetime.concat(' 🌎'), cardBody);
 
   currentWeather.id = 'current-weather';
   cardBody.lastElementChild?.classList.remove('separator');
