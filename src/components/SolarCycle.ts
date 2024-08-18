@@ -12,14 +12,21 @@ export function SolarCycle(sunrise: string, sunset: string): HTMLElement {
   // add classes
   cardBody.classList.add('card-body', 'solar-cycle-body');
 
+  // calculate length of day
+  const lengthOfDayResult = calcLengthOfDay(sunrise, sunset);
+
+  let lengthOfDay: string;
+
+  if (lengthOfDayResult.ok) {
+    lengthOfDay = lengthOfDayResult.val;
+  } else {
+    lengthOfDay = 'Invalid date format!';
+  }
+
   // create info rows using InfoRow component
   const sunriseRow = InfoRow('Sunrise', sunrise, sunriseIcon);
   const sunsetRow = InfoRow('Sunset', sunset, sunsetIcon);
-  const lengthOfDayRow = InfoRow(
-    'Length of Day',
-    calcLengthOfDay(sunrise, sunset),
-    solarCycleIcon,
-  );
+  const lengthOfDayRow = InfoRow('Length of Day', lengthOfDay, solarCycleIcon);
 
   // assemble
   cardBody.appendChild(sunriseRow);
