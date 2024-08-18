@@ -8,41 +8,33 @@ function convertFahrenheitToCelsius(temp: number): number {
   return parseFloat((((temp - 32) * 5) / 9).toFixed(1));
 }
 
-function convertTemperature(
-  temp: number | undefined,
-  toUnit: '°C' | '°F',
-): number {
-  if (typeof temp !== 'number') {
-    throw new Error(`typeof temp: ${typeof temp}`);
-  }
+function convertTemperature(temp: number, toUnit: string): number {
   return toUnit === '°F'
     ? convertCelsiusToFahrenheit(temp)
     : convertFahrenheitToCelsius(temp);
 }
 
 export function switchTempUnit(weather: WeatherData): WeatherData {
-  try {
-    const tempUnit = weather.tempUnit === '°C' ? '°F' : '°C';
-    const newWeather = { ...weather, tempUnit };
+  // check if the current unit is Celsius or Fahrenheit
+  const tempUnit: string = weather.tempUnit === '°C' ? '°F' : '°C';
 
-    for (const day of newWeather.days) {
-      day.temp = convertTemperature(day.temp, tempUnit);
-      day.tempmax = convertTemperature(day.tempmax, tempUnit);
-      day.tempmin = convertTemperature(day.tempmin, tempUnit);
+  // create a new object with the updated unit
+  const newWeather: WeatherData = { ...weather, tempUnit };
 
-      for (const hour of day.hours) {
-        hour.temp = convertTemperature(hour.temp, tempUnit);
-      }
+  for (const day of newWeather.days) {
+    day.temp = convertTemperature(day.temp, tempUnit);
+    day.tempmax = convertTemperature(day.tempmax, tempUnit);
+    day.tempmin = convertTemperature(day.tempmin, tempUnit);
+
+    for (const hour of day.hours) {
+      hour.temp = convertTemperature(hour.temp, tempUnit);
     }
-
-    newWeather.currentConditions.temp = convertTemperature(
-      newWeather.currentConditions.temp,
-      tempUnit,
-    );
-
-    return newWeather;
-  } catch (error) {
-    console.error('Error switching temperature unit:', error);
-    throw error;
   }
+
+  newWeather.currentConditions.temp = convertTemperature(
+    newWeather.currentConditions.temp,
+    tempUnit,
+  );
+
+  return newWeather;
 }

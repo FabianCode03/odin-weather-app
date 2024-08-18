@@ -1,6 +1,6 @@
 import { switchTempUnit } from '../utils/switchTempUnit';
 import { validWeather } from '../data/validWeather';
-import { WeatherData } from '../types/weatherTypes';
+import type { WeatherData } from '../types/weatherTypes';
 
 describe('switchTempUnit', () => {
   let weather: WeatherData;
