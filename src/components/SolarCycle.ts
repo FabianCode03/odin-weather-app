@@ -36,6 +36,7 @@ export function SolarCycle(sunrise: string, sunset: string): HTMLElement {
 
   solarCycle.id = 'solar-cycle';
   cardBody.lastElementChild?.classList.remove('separator');
+  (cardBody.firstElementChild as HTMLElement)?.style.setProperty('padding-top', '0px');
 
   return solarCycle;
 }
