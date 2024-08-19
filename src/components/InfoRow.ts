@@ -18,7 +18,6 @@ export function InfoRow(title: string, info: string | number, prependingIcon: st
   // assemble
   if (prependingIcon !== null) {
     icon.src = prependingIcon;
-    console.log(icon.src);
 
     infoRow.appendChild(icon);
   }
