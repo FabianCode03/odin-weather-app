@@ -8,6 +8,8 @@
   --primary-font-color: #333333;
   --secondary-font-color: #666666;
   --accent-color: #3498db;
+  --error-bg-color: #f8d7da;
+  --error-font-color: #721c24;
   --font-family: 'Poppins', sans-serif;
   --title-font-size: 24px;
   --standard-font-size: 16px;
@@ -102,6 +104,28 @@ body {
   font-weight: 400;
   padding-inline: calc(var(--padding) / 2);
   padding-bottom: calc(var(--padding) / 2);
+}
+
+.error-card {
+  background-color: var(--error-bg-color);
+  border: 1px solid var(--error-font-color);
+}
+
+.error-card * {
+  color: var(--error-font-color);
+}
+
+.error-body {
+  padding-top: var(--padding);
+  text-align: center;
+}
+
+.user-friendly-message {
+  font-weight: 600;
+}
+
+.detailed-message {
+  padding-top: var(--padding);
 }
 
 .current-weather-hero {
