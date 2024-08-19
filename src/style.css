@@ -242,6 +242,63 @@ body {
   margin-left: auto;
 }
 
+.hours-preview-body {
+  padding-block: 0;
+}
+
+.hour-row {
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--padding);
+}
+
+.hour-time {
+  font-size: var(--info-font-size);
+  font-weight: 600;
+  width: min-content;
+}
+
+.hour-temp {
+  font-size: var(--info-font-size);
+  font-weight: 400;
+  width: min-content;
+}
+
+.hour-icon {
+  width: 30px;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hour-conditions {
+  font-size: var(--info-font-size);
+  font-weight: 400;
+  width: min-content;
+}
+
+.hour-precip-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: min-content;
+}
+
+.hour-precip-icon {
+  width: 30px;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hour-precip-value {
+  font-size: var(--info-font-size);
+  font-weight: 400;
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 1024px) {
