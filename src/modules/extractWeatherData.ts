@@ -71,17 +71,17 @@ export function extractWeatherData(json: any): Result<WeatherData, ExtractWeathe
   }
 
   try {
-    const { resolvedAddress, description, days, currentConditions } = json;
+    const weatherData = json as unknown as WeatherData;
 
-    const weatherData: WeatherData = {
+    const extractedWeatherData: WeatherData = {
       tempUnit: '°F',
-      resolvedAddress,
-      description,
-      days: days.map(extractDay),
-      currentConditions: extractCurrentConditions(currentConditions),
+      resolvedAddress: weatherData.resolvedAddress,
+      description: weatherData.description,
+      days: weatherData.days.map(extractDay),
+      currentConditions: extractCurrentConditions(weatherData.currentConditions),
     };
 
-    return Ok(weatherData);
+    return Ok(extractedWeatherData);
   } catch (error) {
     return Err(new ExtractWeatherDataError('Error extracting weather data', error as Error));
   }

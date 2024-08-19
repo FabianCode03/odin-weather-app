@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "CurrentConditions": {
+      "properties": {
+        "conditions": {
+          "type": "string"
+        },
+        "datetime": {
+          "type": "string"
+        },
+        "humidity": {
+          "type": "number"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "precipprob": {
+          "type": "number"
+        },
+        "preciptype": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sunrise": {
+          "type": "string"
+        },
+        "sunset": {
+          "type": "string"
+        },
+        "temp": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "conditions",
+        "datetime",
+        "humidity",
+        "icon",
+        "precipprob",
+        "preciptype",
+        "sunrise",
+        "sunset",
+        "temp"
+      ],
+      "type": "object"
+    },
+    "Day": {
+      "properties": {
+        "conditions": {
+          "type": "string"
+        },
+        "datetime": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "hours": {
+          "items": {
+            "$ref": "#/definitions/Hour"
+          },
+          "type": "array"
+        },
+        "humidity": {
+          "type": "number"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "precipprob": {
+          "type": "number"
+        },
+        "preciptype": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sunrise": {
+          "type": "string"
+        },
+        "sunset": {
+          "type": "string"
+        },
+        "temp": {
+          "type": "number"
+        },
+        "tempmax": {
+          "type": "number"
+        },
+        "tempmin": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "conditions",
+        "datetime",
+        "description",
+        "hours",
+        "humidity",
+        "icon",
+        "precipprob",
+        "preciptype",
+        "sunrise",
+        "sunset",
+        "temp",
+        "tempmax",
+        "tempmin"
+      ],
+      "type": "object"
+    },
+    "Hour": {
+      "properties": {
+        "conditions": {
+          "type": "string"
+        },
+        "datetime": {
+          "type": "string"
+        },
+        "humidity": {
+          "type": "number"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "precipprob": {
+          "type": "number"
+        },
+        "preciptype": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "temp": {
+          "type": "number"
+        }
+      },
+      "required": ["conditions", "datetime", "humidity", "icon", "precipprob", "preciptype", "temp"],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "currentConditions": {
+      "$ref": "#/definitions/CurrentConditions"
+    },
+    "days": {
+      "items": {
+        "$ref": "#/definitions/Day"
+      },
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "resolvedAddress": {
+      "type": "string"
+    },
+    "tempUnit": {
+      "type": "string"
+    }
+  },
+  "required": ["currentConditions", "days", "description", "resolvedAddress", "tempUnit"],
+  "type": "object"
+}

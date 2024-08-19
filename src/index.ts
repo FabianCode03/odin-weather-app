@@ -9,6 +9,7 @@ async function main(): Promise<void> {
   const weather = await getWeather('London');
   if (weather.err) {
     // Render error message as a widget
+    console.error(weather.val);
   }
 
   if (weather.ok) {
