@@ -15,7 +15,7 @@ export function HoursPreview(hours: Hour[]): HTMLElement {
   //   assemble
   cardBody.append(...hourRows);
   cardBody.lastElementChild?.classList.remove('separator');
-  const hoursPreview = Card('Hours Preview', '', cardBody);
+  const hoursPreview = Card('Hours Preview', '⌚', cardBody);
   hoursPreview.id = 'hours-preview';
   return hoursPreview;
 }
