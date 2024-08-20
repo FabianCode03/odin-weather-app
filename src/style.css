@@ -166,7 +166,7 @@ body {
 
 .address {
   grid-area: address;
-  font-size: 24px;
+  font-size: var(--info-font-size);
   font-weight: 600;
 }
 
@@ -203,7 +203,7 @@ body {
   grid-area: conditions;
   align-self: center;
   justify-self: center;
-  font-size: 24px;
+  font-size: var(--info-font-size);
   font-weight: 600;
 }
 
