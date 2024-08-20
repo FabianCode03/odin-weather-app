@@ -124,11 +124,18 @@ body {
   height: calc(100% - 57px); /* 57px is the height of the header */
 }
 
-.forecast-body {
-  font-size: var(--info-font-size);
-  font-weight: 600;
-  text-align: center;
+.forecast-body .info-content {
   font-style: italic;
+}
+
+.forecast-body .info-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.forecast-body .info-content {
+  margin: 0;
 }
 
 .error-card {

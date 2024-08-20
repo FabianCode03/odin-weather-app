@@ -1,16 +1,20 @@
 import { Card } from './Card';
+import { InfoRow } from './InfoRow';
 
-export function Forecast(forecast: string): HTMLElement {
+export function Forecast(forcastForToday: string, forcastForNextFewDays: string): HTMLElement {
   // create elements
   const cardBody = document.createElement('div');
 
   // add classes
   cardBody.classList.add('forecast-body');
 
-  // assemble
-  cardBody.textContent = forecast;
+  // add children
+  cardBody.appendChild(InfoRow('Today', forcastForToday, null));
+  cardBody.appendChild(InfoRow('Next few days', forcastForNextFewDays, null));
+  cardBody.lastElementChild?.classList.remove('separator');
+  (cardBody.firstElementChild as HTMLElement)?.style.setProperty('padding-top', '0px');
 
-  const forecastCard = Card('Forecast', '📈', cardBody);
-  forecastCard.classList.add('forecast');
-  return forecastCard;
+  const forecast = Card('Forecast', '📈', cardBody);
+  forecast.id = 'forecast';
+  return forecast;
 }

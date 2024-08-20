@@ -11,7 +11,7 @@ export function loadWidgets(body: HTMLElement, weather: WeatherData): void {
   const hoursPreview = HoursPreview(hoursArray);
   const currentWeather = CurrentWeather(weather);
   const solarCycle = SolarCycle(weather.currentConditions.sunrise, weather.currentConditions.sunset);
-  const forecast = Forecast(weather.description);
+  const forecast = Forecast(weather.days[0].description, weather.description);
   const today = Today(weather);
 
   body.appendChild(currentWeather);
