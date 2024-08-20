@@ -337,7 +337,7 @@ body {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 10px;
+  gap: 20px;
   scroll-snap-align: start;
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
   scrollbar-width: thin; /* Dünne Scrollbar */
@@ -386,6 +386,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 5px;
 }
 
 .day-temp {
@@ -397,6 +398,27 @@ body {
 .day-min-max-temp {
   font-size: 14px;
   font-weight: 400;
+}
+
+.day-precip-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 58px;
+  margin-top: 5px;
+}
+
+.day-precip-value {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.day-precip-icon {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* MEDIA QUERIES */

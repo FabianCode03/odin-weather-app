@@ -2,7 +2,7 @@ import type { Day } from '../types/weatherTypes';
 import { weatherIcons } from '../img/weather_Icons/weatherIcons';
 import { getDayName } from '../utils/getDayName';
 import { toCamelCase } from '../utils/toCamelCase';
-// import { getPrecipEmoji } from '../utils/getPrecipEmoji';
+import { getPrecipEmoji } from '../utils/getPrecipEmoji';
 
 export function DayColumn(day: Day): HTMLElement {
   // create elements
@@ -13,10 +13,9 @@ export function DayColumn(day: Day): HTMLElement {
   const tempContainer = document.createElement('div');
   const temp = document.createElement('div');
   const minMaxTemp = document.createElement('div');
-  //   const conditions = document.createElement('div');
-  //   const precipContainer = document.createElement('div');
-  //   const precipIcon = document.createElement('div');
-  //   const precipValue = document.createElement('div');
+  const precipContainer = document.createElement('div');
+  const precipIcon = document.createElement('div');
+  const precipValue = document.createElement('div');
 
   // set classes
   column.classList.add('day-column');
@@ -26,10 +25,9 @@ export function DayColumn(day: Day): HTMLElement {
   tempContainer.classList.add('day-temp-container');
   temp.classList.add('day-temp');
   minMaxTemp.classList.add('day-min-max-temp');
-  //   conditions.classList.add('day-conditions');
-  //   precipContainer.classList.add('day-precip-container');
-  //   precipIcon.classList.add('day-precip-icon');
-  //   precipValue.classList.add('day-precip-value');
+  precipContainer.classList.add('day-precip-container');
+  precipIcon.classList.add('day-precip-icon');
+  precipValue.classList.add('day-precip-value');
 
   // add content
   dayName.textContent = getDayName(day.datetime);
@@ -39,19 +37,17 @@ export function DayColumn(day: Day): HTMLElement {
   minMaxTemp.textContent = `${day.tempmin.toFixed(0)}°/${day.tempmax.toFixed(0)}°`;
   tempContainer.appendChild(temp);
   tempContainer.appendChild(minMaxTemp);
-  //   conditions.textContent = day.conditions;
-  //   precipIcon.textContent = getPrecipEmoji(day.preciptype);
-  //   precipValue.textContent = `${day.precipprob.toFixed(0)}%`;
+  precipIcon.textContent = getPrecipEmoji(day.preciptype);
+  precipValue.textContent = `${day.precipprob.toFixed(0)}%`;
 
   // append elements
-  //   precipContainer.appendChild(precipValue);
-  //   precipContainer.appendChild(precipIcon);
+  precipContainer.appendChild(precipValue);
+  precipContainer.appendChild(precipIcon);
   column.appendChild(dayName);
   column.appendChild(dayDate);
   column.appendChild(icon);
   column.appendChild(tempContainer);
-  // column.appendChild(conditions);
-  //   column.appendChild(precipContainer);
+  column.appendChild(precipContainer);
 
   return column;
 }
