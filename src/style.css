@@ -256,6 +256,28 @@ body {
   scroll-snap-type: x mandatory;
   gap: 10px;
   scroll-snap-align: start;
+  -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
+  cursor: grab; /* Zeigt an, dass das Element greifbar ist */
+}
+
+.hours-preview-body.active {
+  cursor: grabbing; /* Zeigt an, dass das Element gerade gezogen wird */
+}
+
+/* Webkit-basierte Browser */
+.hours-preview-body::-webkit-scrollbar {
+  height: 8px; /* Höhe der horizontalen Scrollbar */
+}
+
+.hours-preview-body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Farbe des Scrollbar-Daumen */
+  border-radius: 10px; /* Abgerundete Ecken */
+}
+
+/* Firefox */
+.hours-preview-body {
+  scrollbar-width: thin; /* Dünne Scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Farbe des Scrollbar-Daumen und Hintergrund */
 }
 
 .hour-column {
@@ -270,8 +292,6 @@ body {
 
 .hour-time {
   font-size: var(--info-font-size);
-  font-weight: 600;
-  width: min-content;
 }
 
 .hour-temp {
