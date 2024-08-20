@@ -266,10 +266,6 @@ body {
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
 }
 
-.hourly-weather-body.active {
-  cursor: grabbing; /* Zeigt an, dass das Element gerade gezogen wird */
-}
-
 /* Webkit-basierte Browser */
 .hourly-weather-body::-webkit-scrollbar {
   height: 8px; /* Höhe der horizontalen Scrollbar */
