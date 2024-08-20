@@ -49,7 +49,7 @@ body {
 .body {
   display: grid;
   grid-template-rows: repeat(2, min-content);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
   justify-items: center;
   padding: var(--margin);
@@ -257,7 +257,6 @@ body {
   gap: 10px;
   scroll-snap-align: start;
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
-  cursor: grab; /* Zeigt an, dass das Element greifbar ist */
 }
 
 .hours-preview-body.active {
@@ -340,14 +339,33 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1800px) {
   .body {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* move the bottom to cards to 3rd and 4th position */
+  .card:nth-child(3),
+  .card:nth-child(4) {
+    grid-row: 3;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .body {
     grid-template-columns: 1fr;
+  }
+
+  .card:nth-child(3),
+  .card:nth-child(4) {
+    grid-row: auto;
+  }
+
+  .card:nth-child(3) {
+    grid-row: 4;
+  }
+
+  .card:nth-child(4) {
+    grid-row: 5;
   }
 }
