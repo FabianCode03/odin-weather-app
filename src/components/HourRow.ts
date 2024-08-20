@@ -29,7 +29,7 @@ export function HourRow(hour: Hour): HTMLElement {
   icon.src = weatherIcons[toCamelCase(hour.icon)];
   conditions.textContent = hour.conditions;
   precipIcon.textContent = '💧';
-  precipValue.textContent = `${hour.precipprob}%`;
+  precipValue.textContent = `${hour.precipprob.toFixed(0)}%`;
 
   // append elements
   precipContainer.appendChild(precipValue);
