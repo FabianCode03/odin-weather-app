@@ -41,6 +41,9 @@ body {
   background-color: var(--header-bg-color);
   box-shadow: var(--widget-box-shadow);
   padding: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .body {
