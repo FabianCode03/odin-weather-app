@@ -10,7 +10,7 @@ export function SolarCycle(sunrise: string, sunset: string): HTMLElement {
   const cardBody = document.createElement('div');
 
   // add classes
-  cardBody.classList.add('card-body', 'solar-cycle-body');
+  cardBody.classList.add('solar-cycle-body');
 
   // calculate length of day
   const lengthOfDayResult = calcLengthOfDay(sunrise, sunset);

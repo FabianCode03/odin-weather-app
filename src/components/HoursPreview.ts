@@ -7,7 +7,7 @@ export function HoursPreview(hours: Hour[]): HTMLElement {
   const cardBody = document.createElement('div');
 
   //   set classes
-  cardBody.classList.add('card-body', 'hours-preview-body');
+  cardBody.classList.add('hours-preview-body');
 
   //   create hour rows
   const hourRows = hours.map((hour) => HourRow(hour));
@@ -15,6 +15,7 @@ export function HoursPreview(hours: Hour[]): HTMLElement {
   //   assemble
   cardBody.append(...hourRows);
   cardBody.lastElementChild?.classList.remove('separator');
+  cardBody.lastElementChild?.classList.add('last-hour-row');
   const hoursPreview = Card('Hours Preview', '⌚', cardBody);
   hoursPreview.id = 'hours-preview';
   return hoursPreview;

@@ -7,7 +7,7 @@ export function CurrentWeather(weather: WeatherData): HTMLElement {
   const cardBody = document.createElement('div');
 
   // add classes
-  cardBody.classList.add('card-body', 'current-weather-body');
+  cardBody.classList.add('current-weather-body');
 
   // create hero element using Hero component
   const hero = Hero({

@@ -16,7 +16,7 @@ export function ErrorDisplay(error: GetWeatherError): HTMLElement {
   const detailedMessage = document.createElement('p');
 
   // add classes
-  cardBody.classList.add('card-body', 'error-body');
+  cardBody.classList.add('error-body');
   userFriendlyMessage.classList.add('user-friendly-message', 'separator');
   detailedMessage.classList.add('detailed-message');
 

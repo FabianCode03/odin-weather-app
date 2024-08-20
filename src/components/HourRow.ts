@@ -1,6 +1,7 @@
 import type { Hour } from '../types/weatherTypes';
 import { weatherIcons } from '../img/weather_Icons/weatherIcons';
 import { toCamelCase } from '../utils/toCamelCase';
+import { getPrecipEmoji } from '../utils/getPrecipEmoji';
 
 export function HourRow(hour: Hour): HTMLElement {
   // create elements
@@ -28,7 +29,7 @@ export function HourRow(hour: Hour): HTMLElement {
   temp.textContent = `${hour.temp.toFixed(0)}°`;
   icon.src = weatherIcons[toCamelCase(hour.icon)];
   conditions.textContent = hour.conditions;
-  precipIcon.textContent = '💧';
+  precipIcon.textContent = getPrecipEmoji(hour.preciptype);
   precipValue.textContent = `${hour.precipprob.toFixed(0)}%`;
 
   // append elements

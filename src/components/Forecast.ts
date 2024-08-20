@@ -5,7 +5,7 @@ export function Forecast(forecast: string): HTMLElement {
   const cardBody = document.createElement('div');
 
   // add classes
-  cardBody.classList.add('card-body', 'forecast-body');
+  cardBody.classList.add('forecast-body');
 
   // assemble
   cardBody.textContent = forecast;
