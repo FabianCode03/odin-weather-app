@@ -11,7 +11,8 @@ import {
 } from '../errors/fetchWeatherError';
 
 export async function fetchWeather(city: string): Promise<Result<unknown, FetchWeatherError>> {
-  const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5';
+  // const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5'; // ran out of requests
+  const API_KEY = 'TT6ZH4SFF2NR35BF57Y2DY3YE';
   const iconPack = 'icons2';
   const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}&iconSet=${iconPack}`;
 

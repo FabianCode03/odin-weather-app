@@ -13,7 +13,8 @@ global.fetch = jest.fn();
 
 describe('fetchWeather', () => {
   const city = 'London';
-  const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5';
+  // const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5'; // ran out of requests
+  const API_KEY = 'TT6ZH4SFF2NR35BF57Y2DY3YE';
   const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}&iconSet=icons2`;
 
   afterEach(() => {
