@@ -10,7 +10,9 @@ export function DayColumn(day: Day): HTMLElement {
   const dayName = document.createElement('div');
   const dayDate = document.createElement('div');
   const icon = document.createElement('img');
-  //   const temp = document.createElement('div');
+  const tempContainer = document.createElement('div');
+  const temp = document.createElement('div');
+  const minMaxTemp = document.createElement('div');
   //   const conditions = document.createElement('div');
   //   const precipContainer = document.createElement('div');
   //   const precipIcon = document.createElement('div');
@@ -21,8 +23,9 @@ export function DayColumn(day: Day): HTMLElement {
   dayDate.classList.add('day-date');
   dayName.classList.add('day-name');
   icon.classList.add('day-icon');
-  //   temp.classList.add('day-temp');
-  //   icon.classList.add('day-icon');
+  tempContainer.classList.add('day-temp-container');
+  temp.classList.add('day-temp');
+  minMaxTemp.classList.add('day-min-max-temp');
   //   conditions.classList.add('day-conditions');
   //   precipContainer.classList.add('day-precip-container');
   //   precipIcon.classList.add('day-precip-icon');
@@ -32,7 +35,10 @@ export function DayColumn(day: Day): HTMLElement {
   dayName.textContent = getDayName(day.datetime);
   dayDate.textContent = day.datetime.slice(0, 7);
   icon.src = weatherIcons[toCamelCase(day.icon)];
-  //   temp.textContent = `${day.tempHigh.toFixed(0)}°/${day.tempLow.toFixed(0)}°`;
+  temp.textContent = `${day.temp.toFixed(0)}°`;
+  minMaxTemp.textContent = `${day.tempmin.toFixed(0)}°/${day.tempmax.toFixed(0)}°`;
+  tempContainer.appendChild(temp);
+  tempContainer.appendChild(minMaxTemp);
   //   conditions.textContent = day.conditions;
   //   precipIcon.textContent = getPrecipEmoji(day.preciptype);
   //   precipValue.textContent = `${day.precipprob.toFixed(0)}%`;
@@ -43,7 +49,7 @@ export function DayColumn(day: Day): HTMLElement {
   column.appendChild(dayName);
   column.appendChild(dayDate);
   column.appendChild(icon);
-  //   column.appendChild(temp);
+  column.appendChild(tempContainer);
   // column.appendChild(conditions);
   //   column.appendChild(precipContainer);
 
