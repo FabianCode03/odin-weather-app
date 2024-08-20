@@ -257,7 +257,7 @@ body {
   grid-column: 1 / -1;
 }
 
-.hours-preview-body {
+.hourly-weather-body {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -266,22 +266,22 @@ body {
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
 }
 
-.hours-preview-body.active {
+.hourly-weather-body.active {
   cursor: grabbing; /* Zeigt an, dass das Element gerade gezogen wird */
 }
 
 /* Webkit-basierte Browser */
-.hours-preview-body::-webkit-scrollbar {
+.hourly-weather-body::-webkit-scrollbar {
   height: 8px; /* Höhe der horizontalen Scrollbar */
 }
 
-.hours-preview-body::-webkit-scrollbar-thumb {
+.hourly-weather-body::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.5); /* Farbe des Scrollbar-Daumen */
   border-radius: 10px; /* Abgerundete Ecken */
 }
 
 /* Firefox */
-.hours-preview-body {
+.hourly-weather-body {
   scrollbar-width: thin; /* Dünne Scrollbar */
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Farbe des Scrollbar-Daumen und Hintergrund */
 }
@@ -340,7 +340,7 @@ body {
 
 /* Ultrawide screens */
 @media (min-width: 1600px) {
-  .hours-preview-body {
+  .hourly-weather-body {
     justify-content: space-between;
     gap: 0;
   }
