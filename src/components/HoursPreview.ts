@@ -1,6 +1,6 @@
 import type { Hour } from '../types/weatherTypes';
 import { Card } from './Card';
-import { HourRow } from './HourRow';
+import { HourColumn } from './HourColumn';
 
 export function HoursPreview(hours: Hour[]): HTMLElement {
   //   create elements
@@ -10,12 +10,11 @@ export function HoursPreview(hours: Hour[]): HTMLElement {
   cardBody.classList.add('hours-preview-body');
 
   //   create hour rows
-  const hourRows = hours.map((hour) => HourRow(hour));
+  const hourRows = hours.map((hour) => HourColumn(hour));
 
   //   assemble
   cardBody.append(...hourRows);
   cardBody.lastElementChild?.classList.remove('separator');
-  cardBody.lastElementChild?.classList.add('last-hour-row');
   const hoursPreview = Card('Hours Preview', '⌚', cardBody);
   hoursPreview.id = 'hours-preview';
   return hoursPreview;

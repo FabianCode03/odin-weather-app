@@ -86,7 +86,7 @@ body {
   background-color: var(--widget-bg-color);
   border-radius: var(--widget-border-radius);
   box-shadow: var(--widget-box-shadow);
-  width: 100%;
+  min-width: 100%;
   max-width: 600px;
 }
 
@@ -245,20 +245,27 @@ body {
   margin-left: auto;
 }
 
-#hours-preview > .card-body {
-  padding-block: 0;
+#hours-preview {
+  max-width: 100%;
+  grid-column: 1 / -1;
 }
 
-.hour-row {
-  min-height: 100px;
+.hours-preview-body {
   display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  scroll-snap-align: start;
+}
+
+.hour-column {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-top: var(--padding);
-}
-
-.last-hour-row {
-  padding-bottom: var(--padding);
+  gap: calc(var(--padding) / 2);
+  scroll-snap-align: start;
+  max-width: min-content;
 }
 
 .hour-time {
@@ -274,31 +281,44 @@ body {
 }
 
 .hour-icon {
-  width: 50px;
-  height: auto;
+  width: 40px;
+  height: 40px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .hour-conditions {
-  font-size: var(--info-font-size);
+  font-size: 14px;
   font-weight: 400;
-  width: min-content;
+  min-height: 50px;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .hour-precip-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: min-content;
+  width: 58px;
 }
 
 .hour-precip-value {
-  font-size: var(--info-font-size);
+  font-size: 14px;
   font-weight: 400;
 }
+
 /* MEDIA QUERIES */
+
+/* Ultrawide screens */
+@media (min-width: 1600px) {
+  .hours-preview-body {
+    justify-content: space-between;
+    gap: 0;
+  }
+}
 
 @media (max-width: 1024px) {
   .body {

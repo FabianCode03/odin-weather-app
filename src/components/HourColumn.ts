@@ -3,9 +3,9 @@ import { weatherIcons } from '../img/weather_Icons/weatherIcons';
 import { toCamelCase } from '../utils/toCamelCase';
 import { getPrecipEmoji } from '../utils/getPrecipEmoji';
 
-export function HourRow(hour: Hour): HTMLElement {
+export function HourColumn(hour: Hour): HTMLElement {
   // create elements
-  const row = document.createElement('div');
+  const column = document.createElement('div');
   const time = document.createElement('div');
   const temp = document.createElement('div');
   const icon = document.createElement('img');
@@ -15,7 +15,7 @@ export function HourRow(hour: Hour): HTMLElement {
   const precipValue = document.createElement('div');
 
   // set classes
-  row.classList.add('hour-row', 'separator');
+  column.classList.add('hour-column');
   time.classList.add('hour-time');
   temp.classList.add('hour-temp');
   icon.classList.add('hour-icon');
@@ -35,11 +35,12 @@ export function HourRow(hour: Hour): HTMLElement {
   // append elements
   precipContainer.appendChild(precipValue);
   precipContainer.appendChild(precipIcon);
-  row.appendChild(time);
-  row.appendChild(temp);
-  row.appendChild(icon);
-  row.appendChild(conditions);
-  row.appendChild(precipContainer);
+  column.appendChild(time);
+  column.appendChild(icon);
 
-  return row;
+  column.appendChild(temp);
+  // column.appendChild(conditions);
+  column.appendChild(precipContainer);
+
+  return column;
 }
