@@ -18,7 +18,7 @@ export function DayColumn(day: Day): HTMLElement {
   const precipValue = document.createElement('div');
 
   // set classes
-  column.classList.add('day-column');
+  column.classList.add('day-column', 'highlighting-card');
   dayDate.classList.add('day-date');
   dayName.classList.add('day-name');
   icon.classList.add('day-icon');

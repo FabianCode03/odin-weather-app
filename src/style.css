@@ -54,6 +54,8 @@ body {
   justify-items: center;
   padding: var(--margin);
   gap: var(--margin);
+  max-width: 2560px;
+  margin: 0 auto;
 }
 
 .logo-container {
@@ -261,7 +263,7 @@ body {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 10px;
+  gap: 20px;
   scroll-snap-align: start;
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
   scrollbar-width: thin; /* Dünne Scrollbar */
@@ -360,7 +362,6 @@ body {
   align-items: center;
   gap: calc(var(--padding) / 2);
   scroll-snap-align: start;
-  max-width: min-content;
 }
 
 .day-date {
@@ -421,13 +422,29 @@ body {
   background-position: center;
 }
 
+.highlighting-card {
+  max-width: 200px;
+  padding: 20px;
+  background-color: var(--page-bg-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.highlighting-card:hover {
+  transform: translateY(-5px);
+}
+
 /* MEDIA QUERIES */
 
 /* Ultrawide screens */
 @media (min-width: 1600px) {
   .hourly-weather-body {
     justify-content: space-between;
-    gap: 0;
+  }
+
+  .daily-weather-body {
+    justify-content: space-between;
   }
 }
 

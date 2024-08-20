@@ -15,7 +15,7 @@ export function HourColumn(hour: Hour): HTMLElement {
   const precipValue = document.createElement('div');
 
   // set classes
-  column.classList.add('hour-column');
+  column.classList.add('hour-column', 'highlighting-card');
   time.classList.add('hour-time');
   temp.classList.add('hour-temp');
   icon.classList.add('hour-icon');
