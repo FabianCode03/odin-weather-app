@@ -14,7 +14,7 @@ global.fetch = jest.fn();
 describe('fetchWeather', () => {
   const city = 'London';
   const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5';
-  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}`;
+  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}&iconSet=icons2`;
 
   afterEach(() => {
     jest.clearAllMocks();
