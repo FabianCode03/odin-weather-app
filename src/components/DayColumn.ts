@@ -1,7 +1,7 @@
 import type { Day } from '../types/weatherTypes';
-// import { weatherIcons } from '../img/weather_Icons/weatherIcons';
+import { weatherIcons } from '../img/weather_Icons/weatherIcons';
 import { getDayName } from '../utils/getDayName';
-// import { toCamelCase } from '../utils/toCamelCase';
+import { toCamelCase } from '../utils/toCamelCase';
 // import { getPrecipEmoji } from '../utils/getPrecipEmoji';
 
 export function DayColumn(day: Day): HTMLElement {
@@ -9,8 +9,8 @@ export function DayColumn(day: Day): HTMLElement {
   const column = document.createElement('div');
   const dayName = document.createElement('div');
   const dayDate = document.createElement('div');
+  const icon = document.createElement('img');
   //   const temp = document.createElement('div');
-  //   const icon = document.createElement('img');
   //   const conditions = document.createElement('div');
   //   const precipContainer = document.createElement('div');
   //   const precipIcon = document.createElement('div');
@@ -20,6 +20,7 @@ export function DayColumn(day: Day): HTMLElement {
   column.classList.add('day-column');
   dayDate.classList.add('day-date');
   dayName.classList.add('day-name');
+  icon.classList.add('day-icon');
   //   temp.classList.add('day-temp');
   //   icon.classList.add('day-icon');
   //   conditions.classList.add('day-conditions');
@@ -30,8 +31,8 @@ export function DayColumn(day: Day): HTMLElement {
   // add content
   dayName.textContent = getDayName(day.datetime);
   dayDate.textContent = day.datetime.slice(0, 7);
+  icon.src = weatherIcons[toCamelCase(day.icon)];
   //   temp.textContent = `${day.tempHigh.toFixed(0)}°/${day.tempLow.toFixed(0)}°`;
-  //   icon.src = weatherIcons[toCamelCase(day.icon)];
   //   conditions.textContent = day.conditions;
   //   precipIcon.textContent = getPrecipEmoji(day.preciptype);
   //   precipValue.textContent = `${day.precipprob.toFixed(0)}%`;
@@ -41,7 +42,7 @@ export function DayColumn(day: Day): HTMLElement {
   //   precipContainer.appendChild(precipIcon);
   column.appendChild(dayName);
   column.appendChild(dayDate);
-  //   column.appendChild(icon);
+  column.appendChild(icon);
   //   column.appendChild(temp);
   // column.appendChild(conditions);
   //   column.appendChild(precipContainer);
