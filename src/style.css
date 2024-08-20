@@ -264,6 +264,8 @@ body {
   gap: 10px;
   scroll-snap-align: start;
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
+  scrollbar-width: thin; /* Dünne Scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Farbe des Scrollbar-Daumen und Hintergrund */
 }
 
 /* Webkit-basierte Browser */
@@ -274,12 +276,6 @@ body {
 .hourly-weather-body::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.5); /* Farbe des Scrollbar-Daumen */
   border-radius: 10px; /* Abgerundete Ecken */
-}
-
-/* Firefox */
-.hourly-weather-body {
-  scrollbar-width: thin; /* Dünne Scrollbar */
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Farbe des Scrollbar-Daumen und Hintergrund */
 }
 
 .hour-column {
@@ -330,6 +326,51 @@ body {
 .hour-precip-value {
   font-size: 14px;
   font-weight: 400;
+}
+
+#daily-weather {
+  max-width: 100%;
+  grid-column: 1 / -1;
+}
+
+.daily-weather-body {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  scroll-snap-align: start;
+  -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
+  scrollbar-width: thin; /* Dünne Scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Farbe des Scrollbar-Daumen und Hintergrund */
+}
+
+.daily-weather-body::-webkit-scrollbar {
+  height: 8px; /* Höhe der horizontalen Scrollbar */
+}
+
+.daily-weather-body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Farbe des Scrollbar-Daumen */
+  border-radius: 10px; /* Abgerundete Ecken */
+}
+
+.day-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(var(--padding) / 2);
+  scroll-snap-align: start;
+  max-width: min-content;
+}
+
+.day-date {
+  font-size: var(--info-font-size);
+  text-wrap: nowrap;
+}
+
+.day-name {
+  font-size: var(--info-font-size);
+  font-weight: 600;
 }
 
 /* MEDIA QUERIES */
