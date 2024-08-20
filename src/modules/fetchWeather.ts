@@ -12,7 +12,8 @@ import {
 
 export async function fetchWeather(city: string): Promise<Result<unknown, FetchWeatherError>> {
   const API_KEY = 'QMZ3LX3H3DNTBKFLT3BGJS5A5';
-  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}`;
+  const iconPack = 'icons2';
+  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}&iconSet=${iconPack}`;
 
   try {
     const response = await fetch(URL);
@@ -35,6 +36,7 @@ export async function fetchWeather(city: string): Promise<Result<unknown, FetchW
     }
 
     const data = await response.json();
+
     return Ok(data);
   } catch (error: unknown) {
     if (error instanceof JSONParsingError) {
