@@ -31,7 +31,7 @@ export function Today(weather: WeatherData): HTMLElement {
   // Extract month and day from the date string
   const dateWithoutYear = weather.days[0].datetime.slice(0, 7);
 
-  const todayCard = Card("Today's Details", `${dateWithoutYear}📅`, cardBody);
+  const todayCard = Card("Today's Details", `${dateWithoutYear}🌈`, cardBody);
   todayCard.id = 'today';
   return todayCard;
 }
