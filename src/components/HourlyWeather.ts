@@ -14,7 +14,6 @@ export function HourlyWeather(hours: Hour[]): HTMLElement {
 
   //   assemble
   cardBody.append(...hourRows);
-  cardBody.lastElementChild?.classList.remove('separator');
   const hoursPreview = Card('Hourly Weather', '⌚', cardBody);
   hoursPreview.id = 'hours-preview';
   return hoursPreview;
