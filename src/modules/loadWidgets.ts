@@ -16,6 +16,11 @@ export function loadWidgets(body: HTMLElement, weather: WeatherData): void {
   const today = Today(weather);
   const dailyWeather = DailyWeather(weather.days);
 
+  // remove all children from body
+  while (body.firstChild != null) {
+    body.removeChild(body.firstChild);
+  }
+
   body.appendChild(currentWeather);
   body.appendChild(today);
   body.appendChild(forecast);
