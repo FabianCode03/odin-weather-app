@@ -263,20 +263,13 @@ body {
   padding-block: 0;
 }
 
-.hourly-weather-body > :first-child {
-  margin-left: -10px;
-}
-
-.hourly-weather-body > :last-child {
-  margin-right: -10px;
-}
-
 .hourly-weather-body {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 20px;
   padding: var(--padding);
+  scroll-padding: 4px;
   scroll-snap-align: start;
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
   scrollbar-width: thin; /* Dünne Scrollbar */
@@ -352,20 +345,13 @@ body {
   padding-block: 0;
 }
 
-.daily-weather-body > :first-child {
-  margin-left: -10px;
-}
-
-.daily-weather-body > :last-child {
-  margin-right: -10px;
-}
-
 .daily-weather-body {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 20px;
   padding: var(--padding);
+  scroll-padding: 4px;
   scroll-snap-align: start;
   -webkit-overflow-scrolling: touch; /* Für sanftes Scrollen auf iOS */
   scrollbar-width: thin; /* Dünne Scrollbar */
