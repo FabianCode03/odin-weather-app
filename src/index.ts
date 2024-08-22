@@ -7,7 +7,7 @@ import { loadErrorWidget } from './modules/loadErrorWidget';
 async function main(): Promise<void> {
   const { body } = initialPageLoad();
 
-  const weather = await getWeather('tserovo');
+  const weather = await getWeather('friedrichshafen');
   if (weather.err) {
     loadErrorWidget(body, weather.val);
   }
