@@ -277,7 +277,7 @@ body {
 }
 
 .hourly-weather-body:last-child {
-  padding-right: 0;
+  padding-right: 4px;
 }
 
 /* Webkit-basierte Browser */
@@ -363,7 +363,7 @@ body {
 }
 
 .daily-weather-body:last-child {
-  padding-right: 0;
+  padding-right: 4px;
 }
 
 .daily-weather-body::-webkit-scrollbar {
