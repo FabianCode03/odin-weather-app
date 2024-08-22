@@ -261,6 +261,7 @@ body {
 
 #hours-preview .card-body {
   padding-block: 0;
+  padding-right: 0;
 }
 
 .hourly-weather-body {
@@ -343,6 +344,7 @@ body {
 
 #daily-weather .card-body {
   padding-block: 0;
+  padding-right: 0;
 }
 
 .daily-weather-body {
