@@ -362,6 +362,10 @@ body {
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Farbe des Scrollbar-Daumen und Hintergrund */
 }
 
+.daily-weather-body:first-child {
+  padding-left: 4px;
+}
+
 .daily-weather-body:last-child {
   padding-right: 4px;
 }
