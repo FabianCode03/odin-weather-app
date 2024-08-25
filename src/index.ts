@@ -3,18 +3,34 @@ import { initialPageLoad } from './modules/initialPageLoad';
 import { getWeather } from './modules/getWeather';
 import { loadWidgets } from './modules/loadWidgets';
 import { loadErrorWidget } from './modules/loadErrorWidget';
+import { Modal } from './components/Modal';
 
 async function main(): Promise<void> {
-  const { body } = initialPageLoad();
+  const { header, body } = initialPageLoad();
 
-  const weather = await getWeather('friedrichshafen');
-  if (weather.err) {
-    loadErrorWidget(body, weather.val);
-  }
+  const onSearch = async (city: string): Promise<void> => {
+    const weather = await getWeather(city);
+    if (weather.err) {
+      loadErrorWidget(body, weather.val);
+    } else {
+      loadWidgets(body, weather.val);
+    }
+  };
 
-  if (weather.ok) {
-    // Render weather widget
-    loadWidgets(body, weather.val);
+  const modal = Modal((city: string) => {
+    void onSearch(city);
+  });
+  document.body.appendChild(modal);
+
+  // Show the modal to enter the city name
+  modal.style.display = 'flex';
+
+  // Add event listener to search icon
+  const searchIcon = header.querySelector('.search-icon-container');
+  if (searchIcon != null) {
+    searchIcon.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
   }
 }
 
