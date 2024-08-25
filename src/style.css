@@ -455,10 +455,6 @@ body {
   transition: transform 0.3s;
 }
 
-.highlighting-card:hover {
-  transform: translateY(-5px);
-}
-
 .modal {
   display: none;
   position: fixed;

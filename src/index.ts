@@ -14,6 +14,7 @@ async function main(): Promise<void> {
       loadErrorWidget(body, weather.val);
     } else {
       loadWidgets(body, weather.val);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
